@@ -7,6 +7,21 @@ const user = {
   imageSize: 90,
 };
 
+const items = [
+  { id: 1, isVegetables: true, name: "Vegetables" },
+  { id: 2, isVegetables: false, name: "Dairy" },
+  { id: 3, isVegetables: false, name: "Meat" },
+];
+
+function MyItems() {
+  const listItems = items.map((item) => (
+    <li key={item.id} style={{ color: item.isVegetables ? "Green" : "Red" }}>
+      {item.name}
+    </li>
+  ));
+  return <ul>{listItems}</ul>;
+}
+
 function MyButton() {
   return <button>I'm a button</button>;
 }
@@ -34,6 +49,9 @@ export default function MyApp() {
             height: user.imageSize,
           }}
         />
+      </div>
+      <div>
+        <MyItems />
       </div>
     </>
   );
