@@ -1,4 +1,11 @@
 import "./App.css";
+import "./avatar.css";
+
+const user = {
+  name: "John Doe",
+  imageUrl: "https://i.imgur.com/WqDRezM.jpeg",
+  imageSize: 90,
+};
 
 function MyButton() {
   return <button>I'm a button</button>;
@@ -14,6 +21,19 @@ export default function MyApp() {
 
       <div>
         <h2>JSX fragment allows to render multiple elements</h2>
+      </div>
+
+      <div>
+        <h3>{user.name}</h3>
+        <img
+          className="avatar"
+          src={user.imageUrl}
+          alt={"Photo of " + user.name}
+          style={{
+            width: user.imageSize,
+            height: user.imageSize,
+          }}
+        />
       </div>
     </>
   );
