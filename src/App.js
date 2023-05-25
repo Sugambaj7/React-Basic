@@ -1,5 +1,6 @@
 import "./App.css";
 import "./avatar.css";
+import { useState } from "react";
 
 const user = {
   name: "John Doe",
@@ -7,20 +8,27 @@ const user = {
   imageSize: 90,
 };
 
-function handleClick(event) {
-  return alert("You clicked a button!");
-}
-
-function MyButton() {
-  return <button onClick={handleClick}>Click Me!!!</button>;
-}
-
 export default function MyApp() {
+  const [count, setCount] = useState(0);
+  function MyButton({ count, onClick }) {
+    return (
+      <>
+        <div>
+          <button onClick={onClick}>Clicked {count} times!!!</button>
+        </div>
+      </>
+    );
+  }
+  function handleClick(event) {
+    setCount(count + 1);
+  }
+
   return (
     <>
       <div>
         <h1>Welcome to my app</h1>
-        <MyButton />
+        <MyButton count={count} onClick={handleClick} />
+        <MyButton count={count} onClick={handleClick} />
       </div>
 
       <div>
