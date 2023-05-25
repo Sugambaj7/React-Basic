@@ -7,8 +7,12 @@ const user = {
   imageSize: 90,
 };
 
+function handleClick(event) {
+  return alert("You clicked a button!");
+}
+
 function MyButton() {
-  return <button>I'm a button</button>;
+  return <button onClick={handleClick}>Click Me!!!</button>;
 }
 
 export default function MyApp() {
