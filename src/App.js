@@ -1,25 +1,31 @@
 import "./App.css";
 import "./avatar.css";
 
-function Profile() {
+export default function Profile() {
   return (
-    <img
-      src="https://i.imgur.com/MG0wxVE.jpeg"
-      height="300px"
-      width="300px"
-      alt="doraemon"
-    />
+    <Card>
+      <Avatar
+        size={124}
+        person={{
+          name: "Sugam Bajracharya",
+          imgageId: "123",
+        }}
+      />
+    </Card>
   );
 }
 
-export default function MyApp() {
+function Avatar({ size, person }) {
   return (
-    <>
-      <h2>Doraemon</h2>
-      <section>
-        <Profile />
-        <Profile />
-      </section>
-    </>
+    <img
+      src="https://i.imgur.com/MG0wxVE.jpeg"
+      className="avatar"
+      alt={person.name}
+      width={size}
+      height={size}
+    />
   );
+}
+function Card({ children }) {
+  return <div className="card">{children}</div>;
 }
