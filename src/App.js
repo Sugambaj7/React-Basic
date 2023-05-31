@@ -3,29 +3,26 @@ import "./avatar.css";
 
 export default function Profile() {
   return (
-    <Card>
-      <Avatar
-        size={124}
-        person={{
-          name: "Sugam Bajracharya",
-          imgageId: "123",
-        }}
-      />
-    </Card>
+    <div className="items">
+      <ul>
+        <li>
+          <Items isVegetable={true} name="Tomato" />
+        </li>
+        <li>
+          <Items isVegetable={false} name="Apple" />
+        </li>
+        <li>
+          <Items isVegetable={true} name="Potato" />
+        </li>
+      </ul>
+    </div>
   );
 }
-
-function Avatar({ size, person }) {
+function Items({ isVegetable, name }) {
   return (
-    <img
-      src="https://i.imgur.com/MG0wxVE.jpeg"
-      className="avatar"
-      alt={person.name}
-      width={size}
-      height={size}
-    />
+    <div className="item">
+      <h3>{name}</h3>
+      <p>{isVegetable ? "Vegetable" : "Fruit"}</p>
+    </div>
   );
-}
-function Card({ children }) {
-  return <div className="card">{children}</div>;
 }
